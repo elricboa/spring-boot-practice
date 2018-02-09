@@ -1,8 +1,11 @@
 package fun.elricboa.spring.ioc.factory;
 
+import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import fun.elricboa.spring.ioc.BeanDefinition;
 
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -11,17 +14,35 @@ import java.util.Map;
 public abstract class AbstractBeanFactory implements BeanFactory {
     private Map<String, BeanDefinition> beanDefinitionMap = Maps.newConcurrentMap();
 
+    private final List<String> beanDefinitionNames = Lists.newArrayList();
+
     @Override
-    public Object getBean(String name) {
-        return beanDefinitionMap.get(name).getBean();
+    public Object getBean(String name) throws Exception {
+        BeanDefinition beanDefinition = beanDefinitionMap.get(name);
+        if (beanDefinition == null) {
+            throw new IllegalArgumentException("there is no bean name" + name + "is defined");
+        }
+        Object bean = beanDefinition.getBean();
+        if (bean == null) {
+            bean = doCreateBean(beanDefinition);
+        }
+        return bean;
     }
 
     @Override
-    public Object registerBeanDefinition(String name, BeanDefinition beanDefinition) throws Exception {
-        Object bean = doCreateBean(beanDefinition);
-        beanDefinition.setBean(bean);
-        return beanDefinitionMap.put(name, beanDefinition);
+    public void registerBeanDefinition(String name, BeanDefinition beanDefinition) throws Exception {
+        beanDefinitionNames.add(name);
+        beanDefinitionMap.put(name, beanDefinition);
     }
+
+    public void initLazyBean() throws Exception {
+        Iterator it = beanDefinitionNames.iterator();
+        while (it.hasNext()) {
+            String beanName = (String) it.next();
+            getBean(beanName);
+        }
+    }
+
 
     /**
      * @param beanDefinition

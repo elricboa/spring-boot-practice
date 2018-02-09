@@ -1,5 +1,6 @@
 package fun.elricboa.spring.ioc;
 
+import fun.elricboa.spring.ioc.factory.AbstractBeanFactory;
 import fun.elricboa.spring.ioc.factory.AutowireCapableBeanFactory;
 import fun.elricboa.spring.ioc.factory.BeanFactory;
 import fun.elricboa.spring.ioc.io.ResourceLoader;
@@ -38,6 +39,19 @@ public class BeanFactoryTest {
         for (Map.Entry<String, BeanDefinition> beanDefinitionEntry : xmlBeanDefinitionReader.getRegistry().entrySet()) {
             beanFactory.registerBeanDefinition(beanDefinitionEntry.getKey(), beanDefinitionEntry.getValue());
         }
+        HelloSpringIOCService helloSpringIOCService = (HelloSpringIOCService) beanFactory.getBean("helloSpringIOCService");
+        helloSpringIOCService.helloSpring();
+    }
+
+    @Test
+    public void testLazyInitBean() throws Exception {
+        XmlBeanDefinitionReader xmlBeanDefinitionReader = new XmlBeanDefinitionReader(new ResourceLoader());
+        xmlBeanDefinitionReader.loadBeanDefinition("springioc.xml");
+        AbstractBeanFactory beanFactory = new AutowireCapableBeanFactory();
+        for(Map.Entry<String, BeanDefinition> beanDefinitionEntry : xmlBeanDefinitionReader.getRegistry().entrySet()) {
+            beanFactory.registerBeanDefinition(beanDefinitionEntry.getKey(), beanDefinitionEntry.getValue());
+        }
+        beanFactory.initLazyBean();
         HelloSpringIOCService helloSpringIOCService = (HelloSpringIOCService) beanFactory.getBean("helloSpringIOCService");
         helloSpringIOCService.helloSpring();
     }

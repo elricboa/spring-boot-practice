@@ -7,7 +7,7 @@ import fun.elricboa.spring.ioc.BeanDefinition;
  */
 public interface BeanFactory {
 
-    Object getBean(String name);
+    Object getBean(String name) throws Exception;
 
-    Object registerBeanDefinition(String name, BeanDefinition bean) throws Exception;
+    void registerBeanDefinition(String name, BeanDefinition bean) throws Exception;
 }
