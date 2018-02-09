@@ -1,12 +1,14 @@
 package fun.elricboa.spring.ioc;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
  * @author elricboa on 2017/12/10.
  */
 
+@NoArgsConstructor
 public class BeanDefinition {
 
     @Getter
@@ -19,7 +21,7 @@ public class BeanDefinition {
     private String beanClassName;
     @Getter
     @Setter
-    private PropertyValues propertyValues;
+    private PropertyValues propertyValues = new PropertyValues();
 
     public void setBeanClassName(String beanClassName) {
         this.beanClassName = beanClassName;

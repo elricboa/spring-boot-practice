@@ -17,4 +17,5 @@ public class PropertyValues {
     public void addPropertyValue(PropertyValue propertyValue) {
         this.propertyValueList.add(propertyValue);
     }
+
 }

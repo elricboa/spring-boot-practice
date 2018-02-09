@@ -2,7 +2,11 @@ package fun.elricboa.spring.ioc;
 
 import fun.elricboa.spring.ioc.factory.AutowireCapableBeanFactory;
 import fun.elricboa.spring.ioc.factory.BeanFactory;
+import fun.elricboa.spring.ioc.io.ResourceLoader;
+import fun.elricboa.spring.ioc.xml.XmlBeanDefinitionReader;
 import org.junit.Test;
+
+import java.util.Map;
 
 /**
  * @author elricboa on 2017/12/10.
@@ -10,7 +14,7 @@ import org.junit.Test;
 public class BeanFactoryTest {
 
     @Test
-    public void testIOC() {
+    public void testIOC() throws Exception {
         BeanFactory beanFactory = new AutowireCapableBeanFactory();
 
         BeanDefinition beanDefinition = new BeanDefinition();
@@ -22,6 +26,18 @@ public class BeanFactoryTest {
 
         beanFactory.registerBeanDefinition("helloSpringIOCService", beanDefinition);
 
+        HelloSpringIOCService helloSpringIOCService = (HelloSpringIOCService) beanFactory.getBean("helloSpringIOCService");
+        helloSpringIOCService.helloSpring();
+    }
+
+    @Test
+    public void testXMLBeanRegister() throws Exception {
+        XmlBeanDefinitionReader xmlBeanDefinitionReader = new XmlBeanDefinitionReader(new ResourceLoader());
+        xmlBeanDefinitionReader.loadBeanDefinition("springioc.xml");
+        BeanFactory beanFactory = new AutowireCapableBeanFactory();
+        for (Map.Entry<String, BeanDefinition> beanDefinitionEntry : xmlBeanDefinitionReader.getRegistry().entrySet()) {
+            beanFactory.registerBeanDefinition(beanDefinitionEntry.getKey(), beanDefinitionEntry.getValue());
+        }
         HelloSpringIOCService helloSpringIOCService = (HelloSpringIOCService) beanFactory.getBean("helloSpringIOCService");
         helloSpringIOCService.helloSpring();
     }

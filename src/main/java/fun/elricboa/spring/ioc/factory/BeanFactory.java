@@ -9,5 +9,5 @@ public interface BeanFactory {
 
     Object getBean(String name);
 
-    Object registerBeanDefinition(String name, BeanDefinition bean);
+    Object registerBeanDefinition(String name, BeanDefinition bean) throws Exception;
 }
