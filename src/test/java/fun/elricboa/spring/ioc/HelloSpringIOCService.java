@@ -9,7 +9,10 @@ public class HelloSpringIOCService {
     @Setter
     private String text;
 
-    void helloSpring() {
+    @Setter
+    private OutputService outputService;
+
+    public void helloSpring() {
         System.out.println(text);
     }
 

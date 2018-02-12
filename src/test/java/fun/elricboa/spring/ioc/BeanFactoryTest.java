@@ -16,7 +16,7 @@ public class BeanFactoryTest {
 
     @Test
     public void testIOC() throws Exception {
-        BeanFactory beanFactory = new AutowireCapableBeanFactory();
+        AbstractBeanFactory beanFactory = new AutowireCapableBeanFactory();
 
         BeanDefinition beanDefinition = new BeanDefinition();
         beanDefinition.setBeanClassName("fun.elricboa.spring.ioc.HelloSpringIOCService");
@@ -35,7 +35,7 @@ public class BeanFactoryTest {
     public void testXMLBeanRegister() throws Exception {
         XmlBeanDefinitionReader xmlBeanDefinitionReader = new XmlBeanDefinitionReader(new ResourceLoader());
         xmlBeanDefinitionReader.loadBeanDefinition("springioc.xml");
-        BeanFactory beanFactory = new AutowireCapableBeanFactory();
+        AbstractBeanFactory beanFactory = new AutowireCapableBeanFactory();
         for (Map.Entry<String, BeanDefinition> beanDefinitionEntry : xmlBeanDefinitionReader.getRegistry().entrySet()) {
             beanFactory.registerBeanDefinition(beanDefinitionEntry.getKey(), beanDefinitionEntry.getValue());
         }
