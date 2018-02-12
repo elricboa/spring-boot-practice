@@ -1,7 +1,7 @@
 package fun.elricboa.spring.ioc.factory;
 
-import fun.elricboa.spring.ioc.BeanDefinition;
-import fun.elricboa.spring.ioc.PropertyValue;
+import fun.elricboa.spring.ioc.beans.BeanDefinition;
+import fun.elricboa.spring.ioc.beans.PropertyValue;
 
 import java.lang.reflect.Field;
 

@@ -1,7 +1,7 @@
-package fun.elricboa.spring.ioc;
+package fun.elricboa.spring.ioc.beans;
 
 import com.google.common.collect.Maps;
-import fun.elricboa.spring.ioc.io.ResourceLoader;
+import fun.elricboa.spring.ioc.beans.io.ResourceLoader;
 import lombok.Getter;
 
 import java.util.Map;

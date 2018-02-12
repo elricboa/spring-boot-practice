@@ -1,4 +1,4 @@
-package fun.elricboa.spring.ioc;
+package fun.elricboa.spring.ioc.beans;
 
 import com.google.common.collect.Lists;
 import lombok.Getter;

@@ -1,7 +1,7 @@
-package fun.elricboa.spring.ioc.xml;
+package fun.elricboa.spring.ioc.beans.xml;
 
-import fun.elricboa.spring.ioc.BeanDefinition;
-import fun.elricboa.spring.ioc.io.ResourceLoader;
+import fun.elricboa.spring.ioc.beans.BeanDefinition;
+import fun.elricboa.spring.ioc.beans.io.ResourceLoader;
 import org.junit.Assert;
 import org.junit.Test;
 

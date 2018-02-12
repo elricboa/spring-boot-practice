@@ -1,4 +1,4 @@
-package fun.elricboa.spring.ioc;
+package fun.elricboa.spring.ioc.beans;
 
 /**
  * @author elricboa on 2017/12/10.

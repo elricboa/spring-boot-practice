@@ -1,4 +1,4 @@
-package fun.elricboa.spring.ioc.io;
+package fun.elricboa.spring.ioc.beans.io;
 
 import lombok.AllArgsConstructor;
 

@@ -1,10 +1,10 @@
 package fun.elricboa.spring.ioc.context;
 
-import fun.elricboa.spring.ioc.BeanDefinition;
+import fun.elricboa.spring.ioc.beans.BeanDefinition;
 import fun.elricboa.spring.ioc.factory.AbstractBeanFactory;
 import fun.elricboa.spring.ioc.factory.AutowireCapableBeanFactory;
-import fun.elricboa.spring.ioc.io.ResourceLoader;
-import fun.elricboa.spring.ioc.xml.XmlBeanDefinitionReader;
+import fun.elricboa.spring.ioc.beans.io.ResourceLoader;
+import fun.elricboa.spring.ioc.beans.xml.XmlBeanDefinitionReader;
 
 import java.util.Map;
 

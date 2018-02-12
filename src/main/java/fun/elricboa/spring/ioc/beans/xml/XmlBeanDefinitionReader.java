@@ -1,9 +1,9 @@
-package fun.elricboa.spring.ioc.xml;
+package fun.elricboa.spring.ioc.beans.xml;
 
-import fun.elricboa.spring.ioc.AbstractBeanDefinitionReader;
-import fun.elricboa.spring.ioc.BeanDefinition;
-import fun.elricboa.spring.ioc.PropertyValue;
-import fun.elricboa.spring.ioc.io.ResourceLoader;
+import fun.elricboa.spring.ioc.beans.AbstractBeanDefinitionReader;
+import fun.elricboa.spring.ioc.beans.BeanDefinition;
+import fun.elricboa.spring.ioc.beans.PropertyValue;
+import fun.elricboa.spring.ioc.beans.io.ResourceLoader;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;

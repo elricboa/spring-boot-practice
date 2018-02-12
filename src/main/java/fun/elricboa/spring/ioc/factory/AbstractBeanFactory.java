@@ -2,7 +2,7 @@ package fun.elricboa.spring.ioc.factory;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import fun.elricboa.spring.ioc.BeanDefinition;
+import fun.elricboa.spring.ioc.beans.BeanDefinition;
 
 import java.util.Iterator;
 import java.util.List;
