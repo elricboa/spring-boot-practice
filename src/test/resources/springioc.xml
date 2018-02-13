@@ -7,9 +7,9 @@
         <property name="helloSpringIOCService" ref="helloSpringIOCService"></property>
     </bean>
 
-    <bean name="helloSpringIOCService" class="fun.elricboa.spring.ioc.HelloSpringIOCService">
+    <bean name="helloSpringIOCService" class="fun.elricboa.spring.ioc.HelloSpringIOCServiceImpl">
         <property name="text" value="Hello World!"></property>
-        <property name="outputService" value="outputService"></property>
+        <property name="outputService" ref="outputService"></property>
     </bean>
 
 </beans>

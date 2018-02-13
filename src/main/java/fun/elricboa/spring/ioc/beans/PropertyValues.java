@@ -18,4 +18,8 @@ public class PropertyValues {
         this.propertyValueList.add(propertyValue);
     }
 
+    public List<PropertyValue> getPropertyValues() {
+        return this.propertyValueList;
+    }
+
 }

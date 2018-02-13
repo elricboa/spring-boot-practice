@@ -19,8 +19,6 @@ public class BeanDefinition {
     private Class beanClass;
     @Getter
     private String beanClassName;
-    @Getter
-    @Setter
     private PropertyValues propertyValues = new PropertyValues();
 
     public void setBeanClassName(String beanClassName) {
@@ -30,6 +28,14 @@ public class BeanDefinition {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    public PropertyValues getPropertyValues() {
+        return propertyValues;
+    }
+
+    public void setPropertyValues(PropertyValues propertyValues) {
+        this.propertyValues = propertyValues;
     }
 
 }

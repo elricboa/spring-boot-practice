@@ -11,4 +11,12 @@ import lombok.Getter;
 public class PropertyValue {
     private final String name;
     private final Object value;
+
+    public String getName() {
+        return name;
+    }
+
+    public Object getValue() {
+        return value;
+    }
 }

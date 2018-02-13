@@ -2,6 +2,7 @@ package fun.elricboa.spring.ioc.beans.xml;
 
 import fun.elricboa.spring.ioc.beans.AbstractBeanDefinitionReader;
 import fun.elricboa.spring.ioc.beans.BeanDefinition;
+import fun.elricboa.spring.ioc.beans.BeanReference;
 import fun.elricboa.spring.ioc.beans.PropertyValue;
 import fun.elricboa.spring.ioc.beans.io.ResourceLoader;
 import org.w3c.dom.Document;
@@ -69,7 +70,16 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
                 Element propertyElement = (Element) node;
                 String name = propertyElement.getAttribute("name");
                 String value = propertyElement.getAttribute("value");
-                beanDefinition.getPropertyValues().addPropertyValue(new PropertyValue(name, value));
+                if (value != null && value.length() > 0) {
+                    beanDefinition.getPropertyValues().addPropertyValue(new PropertyValue(name, value));
+                } else {
+                    String ref = propertyElement.getAttribute("ref");
+                    if (ref == null || ref.length() == 0) {
+                        throw new IllegalArgumentException("");
+                    }
+                    BeanReference beanReference = new BeanReference(ref);
+                    beanDefinition.getPropertyValues().addPropertyValue(new PropertyValue(name, beanReference));
+                }
             }
         }
     }
